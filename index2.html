@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Los Santos Taxi</title>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#050505;
+      color:#fff;
+      font-family:'Rajdhani',sans-serif;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+
+      background:
+      linear-gradient(
+      rgba(0,0,0,.72),
+      rgba(0,0,0,.88)
+      ),
+
+      url("https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=1600&auto=format&fit=crop");
+
+      background-size:cover;
+      background-position:center;
+
+      z-index:-2;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+
+      background:
+      radial-gradient(
+      circle at top,
+      rgba(255,196,0,.12),
+      transparent 45%
+      );
+
+      z-index:-1;
+    }
+
+    .topbar{
+      width:100%;
+      padding:18px 40px;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:fixed;
+      top:0;
+      left:0;
+
+      background:rgba(0,0,0,.55);
+
+      backdrop-filter:blur(8px);
+
+      border-bottom:1px solid rgba(255,196,0,.25);
+
+      z-index:999;
+    }
+
+    .brand{
+      font-family:'Orbitron',sans-serif;
+      font-size:28px;
+      font-weight:900;
+      color:#ffc400;
+
+      letter-spacing:2px;
+    }
+
+    .nav{
+      display:flex;
+      gap:18px;
+    }
+
+    .nav a{
+      text-decoration:none;
+      color:#fff;
+      font-size:18px;
+      transition:.2s;
+    }
+
+    .nav a:hover{
+      color:#ffc400;
+    }
+
+    .hero{
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:140px 25px 80px;
+    }
+
+    .hero-box{
+      width:100%;
+      max-width:1200px;
+
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+
+      gap:35px;
+    }
+
+    .left{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .small{
+      color:#ffc400;
+      font-size:20px;
+      font-weight:700;
+      margin-bottom:10px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+
+    h1{
+      font-family:'Orbitron',sans-serif;
+      font-size:72px;
+      line-height:1;
+      margin-bottom:20px;
+    }
+
+    .yellow{
+      color:#ffc400;
+    }
+
+    .desc{
+      font-size:24px;
+      color:#ddd;
+      line-height:1.5;
+      max-width:650px;
+      margin-bottom:30px;
+    }
+
+    .status{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+
+      width:max-content;
+
+      padding:12px 22px;
+
+      background:#0d2e13;
+
+      border:1px solid #2ed85d;
+
+      border-radius:999px;
+
+      color:#7fff98;
+
+      font-size:20px;
+      font-weight:700;
+
+      margin-bottom:30px;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+
+      background:#2ed85d;
+      border-radius:50%;
+
+      box-shadow:0 0 10px #2ed85d;
+    }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .btn{
+      text-decoration:none;
+
+      padding:16px 28px;
+
+      border-radius:14px;
+
+      font-size:20px;
+      font-weight:700;
+
+      transition:.25s;
+    }
+
+    .btn-yellow{
+      background:#ffc400;
+      color:#111;
+    }
+
+    .btn-yellow:hover{
+      transform:translateY(-3px);
+      box-shadow:0 0 25px rgba(255,196,0,.35);
+    }
+
+    .btn-dark{
+      background:#121212;
+      color:#fff;
+
+      border:1px solid rgba(255,255,255,.1);
+    }
+
+    .btn-dark:hover{
+      border-color:#ffc400;
+      color:#ffc400;
+    }
+
+    .right{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .card{
+      background:rgba(15,15,15,.88);
+
+      border:1px solid rgba(255,255,255,.08);
+
+      border-radius:24px;
+
+      padding:28px;
+
+      backdrop-filter:blur(10px);
+    }
+
+    .card h2{
+      color:#ffc400;
+      font-size:32px;
+      margin-bottom:18px;
+    }
+
+    .card p,
+    .card li{
+      font-size:20px;
+      line-height:1.6;
+      color:#eee;
+    }
+
+    .card ul{
+      padding-left:20px;
+    }
+
+    .price{
+      font-size:52px;
+      font-weight:900;
+      color:#ffc400;
+      margin:10px 0;
+    }
+
+    .note{
+      margin-top:18px;
+
+      background:#241d05;
+
+      border:1px solid rgba(255,196,0,.4);
+
+      border-radius:16px;
+
+      padding:15px;
+
+      color:#ffe38c;
+      font-size:18px;
+    }
+
+    .bottom{
+      padding:0 25px 80px;
+    }
+
+    .bottom-box{
+      max-width:1200px;
+      margin:auto;
+
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+      gap:20px;
+    }
+
+    .mini-card{
+      background:rgba(15,15,15,.88);
+
+      border-radius:20px;
+
+      padding:25px;
+
+      border:1px solid rgba(255,255,255,.08);
+
+      text-align:center;
+    }
+
+    .mini-card h3{
+      font-size:42px;
+      color:#ffc400;
+      margin-bottom:8px;
+    }
+
+    .mini-card p{
+      font-size:20px;
+      color:#ddd;
+    }
+
+    footer{
+      padding:30px;
+      text-align:center;
+      color:#888;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    @media(max-width:1000px){
+
+      .hero-box{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:54px;
+      }
+
+      .desc{
+        font-size:22px;
+      }
+
+    }
+
+    @media(max-width:700px){
+
+      .topbar{
+        padding:15px 20px;
+      }
+
+      .nav{
+        display:none;
+      }
+
+      h1{
+        font-size:42px;
+      }
+
+      .desc{
+        font-size:20px;
+      }
+
+      .card h2{
+        font-size:28px;
+      }
+
+      .card p,
+      .card li{
+        font-size:18px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <div class="brand">
+      LOS SANTOS TAXI
+    </div>
+
+    <nav class="nav">
+      <a href="#">Start</a>
+      <a href="#">Preise</a>
+      
+      
+    </nav>
+
+  </header>
+
+  <section class="hero">
+
+    <div class="hero-box">
+
+      <div class="left">
+
+        <div class="small">
+          Offizieller Fahrdienst
+        </div>
+
+        <h1>
+          DEIN <span class="yellow">TAXI</span><br>
+          IN LOS SANTOS
+        </h1>
+
+        <div class="desc">
+          Schnell durch Los Santos, Sandy Shores oder Paleto.
+          Unsere Fahrer bringen dich sicher ans Ziel —
+          oder zumindest meistens.
+        </div>
+
+        <div class="status">
+          <div class="dot"></div>
+          Leitstelle besetzt
+        </div>
+
+        <div class="buttons">
+
+          <a href="#"
+             class="btn btn-dark">
+             Fahrer werden
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="right">
+
+        <div class="card">
+
+          <h2>Preise</h2>
+
+          <div class="price">
+            5$
+          </div>
+
+          <p>
+            pro angefangenem Kilometer
+          </p>
+
+          <div class="note">
+            Trinkgelder bitte über die Rechnung geben.
+            Fahrer nehmen kein Bargeld an.
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h2>Unser Service</h2>
+
+          <ul>
+            <li>Fahrten durch ganz Los Santos</li>
+            <li>Sandy Shores & Paleto möglich</li>
+            <li>Regelmäßig im Dienst</li>
+            <li>Freundliche Fahrer</li>
+            <li>Leitstelle verfügbar</li>
+          </ul>
+
+        </div>
+
+        <div class="card">
+
+          <h2>Fahrer gesucht</h2>
+
+          <p>
+            Du suchst einen Job mit Chaos,
+            Funkgerät und völlig normalen Fahrgästen?
+            Dann bewirb dich jetzt beim Los Santos Taxi.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="bottom">
+
+    <div class="bottom-box">
+
+      <div class="mini-card">
+        <h3>24/7</h3>
+        <p>regelmäßig erreichbar</p>
+      </div>
+
+      <div class="mini-card">
+        <h3>5$</h3>
+        <p>pro angefangenem Kilometer</p>
+      </div>
+
+      <div class="mini-card">
+        <h3>LS</h3>
+        <p>Sandy & Paleto inklusive</p>
+      </div>
+
+      <div class="mini-card">
+        <h3>RP</h3>
+        <p>voll IC nutzbar</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    Los Santos Taxi • Nur eine Website für einen GTA5 RP Server
+  </footer>
+
+</body>
+</html>
