@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Service - Los Santos Taxi</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      color: #fff;
+      background:
+        linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.9)),
+        url("bg.jpg");
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(0,0,0,0.88);
+      border-bottom: 3px solid #ffc700;
+      padding: 25px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 38px;
+      text-transform: uppercase;
+      color: #ffc700;
+      text-shadow: 4px 4px 0 #000;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: #ffc700;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: 90px auto;
+      padding: 30px;
+      background: rgba(0,0,0,0.78);
+      border: 3px solid #ffc700;
+      box-shadow: 8px 8px 0 #000;
+    }
+
+    h1 {
+      font-size: 72px;
+      color: #ffc700;
+      text-transform: uppercase;
+      text-shadow: 5px 5px 0 #000;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.65);
+      border: 2px solid rgba(255,199,0,0.75);
+      padding: 22px;
+      min-height: 190px;
+    }
+
+    .card h2 {
+      color: #ffc700;
+      font-size: 32px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      text-shadow: 3px 3px 0 #000;
+    }
+
+    .card p {
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #eee;
+    }
+
+    footer {
+      text-align: center;
+      color: #aaa;
+      padding: 25px;
+      font-family: Arial, sans-serif;
+    }
+
+    @media(max-width: 800px) {
+      header {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Los Santos Taxi</div>
+
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="preise.html">Preise</a>
+      <a href="service.html">Service</a>
+      <a href="bewerbung.html">Fahrer gesucht</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Service</h1>
+
+    <div class="grid">
+
+      <div class="card">
+        <h2>Stadtfahrten</h2>
+        <p>
+          Fahrten innerhalb von Los Santos.
+          Schnell, direkt und ohne unn&ouml;tige Umwege.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Langstrecken</h2>
+        <p>
+          Fahrten nach Sandy Shores, Paleto Bay
+          und in die umliegenden Gebiete.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Abholung</h2>
+        <p>
+          Du wirst an deinem Standort abgeholt
+          und sicher zum Ziel gebracht.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Firmenfahrten</h2>
+        <p>
+          Transporte f&uuml;r Firmen, Mitarbeiter
+          oder besondere IC-Termine.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Sicherheit</h2>
+        <p>
+          Unsere Fahrer achten auf Verkehrsregeln,
+          Diskretion und eine angenehme Fahrt.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Taxi Job</h2>
+        <p>
+          Du willst selbst fahren?
+          Dann informiere dich auf der Bewerbungsseite.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    Los Santos Taxi &bull; Service f&uuml;r Los Santos
+  </footer>
+
+</body>
+</html>
