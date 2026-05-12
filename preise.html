@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preise - Los Santos Taxi</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      color: #fff;
+      background:
+        linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.9)),
+        url("bg.jpg");
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(0,0,0,0.88);
+      border-bottom: 3px solid #ffc700;
+      padding: 25px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 38px;
+      text-transform: uppercase;
+      color: #ffc700;
+      text-shadow: 4px 4px 0 #000;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: #ffc700;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 90px auto;
+      padding: 30px;
+      background: rgba(0,0,0,0.78);
+      border: 3px solid #ffc700;
+      box-shadow: 8px 8px 0 #000;
+    }
+
+    h1 {
+      font-size: 72px;
+      color: #ffc700;
+      text-transform: uppercase;
+      text-shadow: 5px 5px 0 #000;
+      margin-bottom: 30px;
+    }
+
+    .price {
+      font-size: 90px;
+      text-align: center;
+      color: #ffc700;
+      text-shadow: 6px 6px 0 #000;
+      margin: 35px 0 10px;
+    }
+
+    .sub {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+    }
+
+    .box {
+      font-family: Arial, sans-serif;
+      background: rgba(255,199,0,0.12);
+      border: 1px solid #ffc700;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+
+    footer {
+      text-align: center;
+      color: #aaa;
+      padding: 25px;
+      font-family: Arial, sans-serif;
+    }
+
+    @media(max-width: 800px) {
+      header {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Los Santos Taxi</div>
+
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="preise.html">Preise</a>
+      <a href="service.html">Service</a>
+      <a href="bewerbung.html">Fahrer gesucht</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Preise</h1>
+
+    <div class="price">5$</div>
+    <div class="sub">pro angefangenem Kilometer</div>
+
+    <div class="box">
+      Trinkgelder bitte &uuml;ber die Rechnung geben.<br>
+      Unsere Fahrer nehmen kein Bargeld an.<br><br>
+      Der Preis gilt f&uuml;r Fahrten durch Los Santos, Sandy Shores und Paleto Bay.
+    </div>
+  </main>
+
+  <footer>
+    Los Santos Taxi &bull; Faire Preise f&uuml;r Los Santos
+  </footer>
+
+</body>
+</html>
